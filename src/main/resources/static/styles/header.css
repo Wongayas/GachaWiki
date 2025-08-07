@@ -1,0 +1,26 @@
+#nav_bar {
+    position: relative;
+    z-index: 1 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: auto;
+    background-color: black;
+    padding: 0 50px;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+.nav-elements ul {
+    float: right;
+    list-style: none;
+    display: flex;
+    overflow: hidden;
+}
+
+.nav-elements ul a {
+    padding: 40px;
+}

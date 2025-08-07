@@ -1,0 +1,26 @@
+### GET request to example server
+GET http://localhost:8080/allCharacters
+
+###
+GET http://localhost:8080/characters?element=Fusion
+
+###
+GET http://localhost:8080/characters/weapon/Sword
+
+###
+GET http://localhost:8080/Lupa
+
+### GET request to example server
+GET http://localhost:8080/addAll
+
+###
+POST http://localhost:8080/addChar
+Content-Type: application/json
+
+{
+  "name": "Lupa",
+  "hp":10000,
+  "atk":1000,
+  "def": 600,
+  "maxEnergy":150
+}

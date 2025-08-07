@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/filters.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="header.html :: header" class="header"></div>
+<div th:insert="filters.html :: filters"></div>
+<div id="charList">
+    <div class="char" th:classappend="${wuwaChar.rarity == '5-star'}?'five-star':'four-star'" th:each = "wuwaChar: ${wuwaChars}">
+        <a th:href="@{characters/{name}(name = ${wuwaChar.name})}">
+            <img th:src="${wuwaChar.img_path}" th:alt="${wuwaChar.name}">
+            <img class="element-icon" th:src="@{/Wuwa_elements_img/{element}_Icon.png(element=${wuwaChar.element})}" th:alt="${wuwaChar.element}"/>
+            <img class="weapon-icon" th:src="@{/Wuwa_weapons_img/{weaponType}_Icon.png(weaponType=${wuwaChar.weaponType})}" th:alt="${wuwaChar.weaponType}"/>
+            <div class="name_field">
+                <span th:text="${wuwaChar.name}"></span>
+            </div>
+        </a>
+</div>
+</div>
+<script th:inline="javascript" src="/scripts/index.js">
+</script>
+</body>
+</html>

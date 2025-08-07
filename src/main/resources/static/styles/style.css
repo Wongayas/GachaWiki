@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: darkslateblue;
+}
+
+a{
+    text-decoration: none;
+}
+
+#charList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    height: 100%;
+    row-gap: 20px;
+    column-gap: 2rem;
+    padding: 1rem;
+    justify-items: center;
+    justify-content: space-between;
+}
+.char{
+    position: relative;
+    border: 1px solid black;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 20px ;
+    width: 200px;
+    height: 300px;
+    transition: all 0.2s;
+}
+.char:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.char img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    -webkit-mask-image: -webkit-linear-gradient(black 70%,transparent);
+    mask-image: linear-gradient(black 70%, transparent);
+    font-size: 0;
+}
+
+.name_field{
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(black,#434343) ;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+}
+.name_field span{
+    color : white;
+    font-weight: bold;
+    padding: 0.5rem 0;
+}
+
+.element-icon{
+    position: absolute;
+    height: auto;
+    width: auto;
+    max-width: 50px;
+    max-height: 50px;
+    bottom: 15.5rem;
+    z-index: 2;
+    filter: drop-shadow(5px 3px black);
+    font-size: 0;
+}
+.weapon-icon{
+    position: absolute;
+    height: auto;
+    width: auto;
+    max-width: 40px;
+    max-height: 40px;
+    left: 9.5rem;
+    bottom: 16rem;
+    z-index: 2;
+    filter: drop-shadow(5px 3px black);
+    font-size: 0;
+}
+
+.five-star{
+    background-image: linear-gradient(darkgoldenrod, gold);
+}
+
+.four-star{
+    background-image: linear-gradient(darkslateblue, purple);
+  }
