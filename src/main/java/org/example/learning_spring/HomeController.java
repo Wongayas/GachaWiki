@@ -1,6 +1,9 @@
 package org.example.learning_spring;
 
 import jakarta.servlet.http.HttpSession;
+import org.example.learning_spring.DTOs.WuwaCharLoreDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,7 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
     final private WuwaCharsService wuwaCharsService;
 
     @Autowired
@@ -60,5 +64,14 @@ public class HomeController {
     @PostMapping("/addChar")
     public void addChar(@RequestBody WuwaChar wuwaChar){
         wuwaCharsService.addWuwaChar(wuwaChar);
+    }
+
+    @PostMapping("addLore")
+    @ResponseBody
+    public void addLore(@RequestBody WuwaCharLoreDTO wuwaCharLoreDTO){
+        WuwaCharLore wuwaCharLore = wuwaCharLoreDTO.getWuwaCharLore();
+        String name = wuwaCharLoreDTO.getName();
+        System.out.println(wuwaCharLore.getLoreSummary()+" "+ wuwaCharLore.getFullLorePath()+ " " + name);
+        wuwaCharsService.updateWuwaCharLore(wuwaCharLore,name);
     }
 }

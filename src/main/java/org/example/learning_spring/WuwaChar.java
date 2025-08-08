@@ -18,6 +18,10 @@ public class WuwaChar {
     String img_path;
     String rarity;
 
+    @OneToOne(mappedBy = "wuwaChar")
+    private WuwaCharLore wuwaCharLore;
+
+
     public WuwaChar() {}
 
     public WuwaChar(String name, int hp, int atk, int def, int maxEnergy, String element, String weaponType,  String img_path, String rarity) {
@@ -123,5 +127,13 @@ public class WuwaChar {
 
     public void setRarity(String rarity) {
         this.rarity = rarity;
+    }
+
+    public WuwaCharLore getWuwaCharLore() {
+        return wuwaCharLore;
+    }
+
+    public void setWuwaCharLore(WuwaCharLore wuwaCharLore) {
+        this.wuwaCharLore = wuwaCharLore;
     }
 }

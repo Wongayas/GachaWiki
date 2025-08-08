@@ -3,8 +3,10 @@ package org.example.learning_spring;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.transaction.Transactional;
+import org.example.learning_spring.Repositories.WuwaCharLoreRepository;
+import org.example.learning_spring.Repositories.WuwaCharsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -15,10 +17,12 @@ import java.util.List;
 @Service
 public class WuwaCharsService {
     final private WuwaCharsRepository wuwaCharsRepository;
+    final private WuwaCharLoreRepository wuwaCharLoreRepository;
 
     @Autowired
-    WuwaCharsService(WuwaCharsRepository wuwaCharsRepository) {
+    WuwaCharsService(WuwaCharsRepository wuwaCharsRepository,  WuwaCharLoreRepository wuwaCharLoreRepository) {
         this.wuwaCharsRepository = wuwaCharsRepository;
+        this.wuwaCharLoreRepository = wuwaCharLoreRepository;
     }
 
     //ADD ALL CHARS FROM JSON
@@ -30,10 +34,13 @@ public class WuwaCharsService {
         wuwaCharsRepository.saveAll(allWuwaChars);
     }
 
+
+    //List all characters
     public List<WuwaChar> getAllWuwaChars() {
         return wuwaCharsRepository.findAll();
     }
 
+    //FILTER CHARACTERS
     public List<WuwaChar> getByElementAndWeapon(String element, String weaponType) {
         if(element == null ||element.isEmpty()) {
             return weaponType == null || weaponType.isEmpty()
@@ -66,11 +73,20 @@ public class WuwaCharsService {
 
     public List<WuwaChar> getByWeaponType(String weaponType){return wuwaCharsRepository.findByWeaponType(weaponType);}
 
+    @Transactional
     public void deleteWuwaChar(String name){
         wuwaCharsRepository.deleteByName(name);
     }
 
+    @Transactional
     public void addWuwaChar(WuwaChar wuwaChar){
         wuwaCharsRepository.save(wuwaChar);
+    }
+
+    @Transactional
+    public void updateWuwaCharLore(WuwaCharLore wuwaCharLore, String name){
+        WuwaChar wuwaChar = getByName(name).get(0);
+        wuwaCharLore.setWuwaChar(wuwaChar);
+        wuwaCharLoreRepository.save(wuwaCharLore);
     }
 }

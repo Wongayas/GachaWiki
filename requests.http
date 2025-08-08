@@ -24,3 +24,15 @@ Content-Type: application/json
   "def": 600,
   "maxEnergy":150
 }
+
+###
+POST http://localhost:8080/addLore
+Content-Type: application/json
+
+{
+  "wuwaCharLore": {
+    "loreSummary":"It was a great day",
+    "fullLorePath" : "boo"
+  },
+  "name": "Phrolova"
+}

@@ -1,9 +1,9 @@
-package org.example.learning_spring;
+package org.example.learning_spring.Repositories;
 
+import org.example.learning_spring.WuwaChar;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
