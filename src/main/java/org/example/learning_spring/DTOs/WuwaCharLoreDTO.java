@@ -1,12 +1,14 @@
 package org.example.learning_spring.DTOs;
 
-import org.example.learning_spring.WuwaCharLore;
+import org.example.learning_spring.TableClasses.WuwaCharLore;
 
 public class WuwaCharLoreDTO {
     private WuwaCharLore wuwaCharLore;
     private String name;
-    WuwaCharLoreDTO(){};
-    WuwaCharLoreDTO(WuwaCharLore wuwaCharLore, String name) {
+
+    public WuwaCharLoreDTO(){};
+
+    public WuwaCharLoreDTO(WuwaCharLore wuwaCharLore, String name) {
         this.wuwaCharLore = wuwaCharLore;
         this.name = name;
     }

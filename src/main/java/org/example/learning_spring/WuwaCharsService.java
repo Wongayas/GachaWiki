@@ -4,13 +4,17 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
+import org.example.learning_spring.DTOs.WuwaCharLoreDTO;
 import org.example.learning_spring.Repositories.WuwaCharLoreRepository;
 import org.example.learning_spring.Repositories.WuwaCharsRepository;
+import org.example.learning_spring.TableClasses.WuwaChar;
+import org.example.learning_spring.TableClasses.WuwaCharLore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -53,14 +57,16 @@ public class WuwaCharsService {
         else{
             return getAllWuwaChars()
                     .stream()
-                    .filter(wuwaChar -> wuwaChar.element.equals(element))
-                    .filter(wuwaChar -> wuwaChar.weaponType.equals(weaponType))
+                    .filter(wuwaChar -> wuwaChar.getElement().equals(element))
+                    .filter(wuwaChar -> wuwaChar.getWeaponType().equals(weaponType))
                     .toList();
         }
     }
 
-    public List<WuwaChar> getByRarity(String rarity) {
-        return getAllWuwaChars().stream().filter(wuwaChar -> wuwaChar.rarity.equals(rarity)).toList();
+
+    //SORT BY RARITY
+    public List<WuwaChar> sortByRarity(String rarity) {
+        return getAllWuwaChars().stream().filter(wuwaChar -> wuwaChar.getRarity().equals(rarity)).toList();
     }
 
     public List<WuwaChar> getByName(String name){
@@ -88,5 +94,25 @@ public class WuwaCharsService {
         WuwaChar wuwaChar = getByName(name).get(0);
         wuwaCharLore.setWuwaChar(wuwaChar);
         wuwaCharLoreRepository.save(wuwaCharLore);
+    }
+
+    @Transactional
+    public void updateAllWuwaCharLore(List<WuwaCharLoreDTO> wuwaCharLoreDTOs){
+        List<WuwaCharLore> wuwaCharLores = new ArrayList<>();
+        for(WuwaCharLoreDTO wuwaCharLoreDTO : wuwaCharLoreDTOs){
+            WuwaChar wuwaChar = getByName(wuwaCharLoreDTO.getName()).get(0);
+            wuwaCharLoreDTO.getWuwaCharLore().setWuwaChar(wuwaChar);
+            wuwaCharLores.add(wuwaCharLoreDTO.getWuwaCharLore());
+        }
+        wuwaCharLoreRepository.saveAll(wuwaCharLores);
+    }
+
+    public WuwaCharLore getWuwaCharLore(String name){
+        return wuwaCharLoreRepository.findByWuwaChar_Name(name);
+    }
+
+    public String getLoreSummary(WuwaChar wuwaChar){
+        WuwaCharLore wuwaCharLore = getWuwaCharLore(wuwaChar.getName());
+        return  wuwaCharLore.getLoreSummary();
     }
 }

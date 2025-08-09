@@ -1,7 +1,8 @@
 package org.example.learning_spring;
 
-import jakarta.servlet.http.HttpSession;
 import org.example.learning_spring.DTOs.WuwaCharLoreDTO;
+import org.example.learning_spring.TableClasses.WuwaChar;
+import org.example.learning_spring.TableClasses.WuwaCharLore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -46,7 +44,9 @@ public class HomeController {
     public String showCharacter(@PathVariable String name, Model model) {
         List<WuwaChar> wuwaChars = wuwaCharsService.getByName(name);
         WuwaChar wuwaChar = wuwaChars.get(0);
+        String loreSummary = wuwaCharsService.getLoreSummary(wuwaChar);
         model.addAttribute("wuwaChar", wuwaChar);
+        model.addAttribute("loreSummary", loreSummary);
         return "character";
     }
 
@@ -56,7 +56,6 @@ public class HomeController {
         capitalName.setCharAt(0, Character.toUpperCase(capitalName.charAt(0)));
         List<WuwaChar> wuwaChar;
         wuwaChar = wuwaCharsService.getByName(capitalName.toString());
-        System.out.println(wuwaChar.get(0).getName());
         model.addAttribute("wuwaChars", wuwaChar);
         return "index";
     }
@@ -68,10 +67,7 @@ public class HomeController {
 
     @PostMapping("addLore")
     @ResponseBody
-    public void addLore(@RequestBody WuwaCharLoreDTO wuwaCharLoreDTO){
-        WuwaCharLore wuwaCharLore = wuwaCharLoreDTO.getWuwaCharLore();
-        String name = wuwaCharLoreDTO.getName();
-        System.out.println(wuwaCharLore.getLoreSummary()+" "+ wuwaCharLore.getFullLorePath()+ " " + name);
-        wuwaCharsService.updateWuwaCharLore(wuwaCharLore,name);
+    public void addLore(@RequestBody List<WuwaCharLoreDTO> wuwaCharLoreDTOs){
+        wuwaCharsService.updateAllWuwaCharLore(wuwaCharLoreDTOs);
     }
 }
