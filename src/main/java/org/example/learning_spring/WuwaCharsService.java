@@ -63,7 +63,6 @@ public class WuwaCharsService {
         }
     }
 
-
     //SORT BY RARITY
     public List<WuwaChar> sortByRarity(String rarity) {
         return getAllWuwaChars().stream().filter(wuwaChar -> wuwaChar.getRarity().equals(rarity)).toList();
