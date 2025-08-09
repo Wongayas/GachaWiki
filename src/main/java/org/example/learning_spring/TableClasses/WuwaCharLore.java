@@ -1,13 +1,15 @@
 package org.example.learning_spring;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
 public class WuwaCharLore {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private int id;
-    @Column(name = "lore_summary")
+    @Column(name = "lore_summary", length = 1000)
     private String loreSummary;
     @Column(name = "full_lore_path")
     private String fullLorePath;
