@@ -1,4 +1,4 @@
-package org.example.learning_spring.StaticClasses;
+package org.example.learning_spring.IOInteractionClasses;
 
 import com.opencsv.CSVWriter;
 

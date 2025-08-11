@@ -1,6 +1,6 @@
 package org.example.learning_spring.DTOs;
 
-import org.example.learning_spring.TableClasses.WuwaCharLore;
+import org.example.learning_spring.TableClasses.Wuwa.WuwaCharLore;
 
 public class WuwaCharLoreDTO {
     private WuwaCharLore wuwaCharLore;

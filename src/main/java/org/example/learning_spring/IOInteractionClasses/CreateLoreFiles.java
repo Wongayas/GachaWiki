@@ -1,9 +1,9 @@
-package org.example.learning_spring.StaticClasses;
+package org.example.learning_spring.IOInteractionClasses;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.MapperFeature;
-import org.example.learning_spring.TableClasses.WuwaChar;
+import org.example.learning_spring.TableClasses.Wuwa.WuwaChar;
 
 import java.io.File;
 import java.io.IOException;

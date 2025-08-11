@@ -7,16 +7,16 @@ import jakarta.transaction.Transactional;
 import org.example.learning_spring.DTOs.WuwaCharLoreDTO;
 import org.example.learning_spring.Repositories.WuwaCharLoreRepository;
 import org.example.learning_spring.Repositories.WuwaCharsRepository;
-import org.example.learning_spring.TableClasses.WuwaChar;
-import org.example.learning_spring.TableClasses.WuwaCharLore;
+import org.example.learning_spring.TableClasses.Wuwa.WuwaChar;
+import org.example.learning_spring.TableClasses.Wuwa.WuwaCharLore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class WuwaCharsService {
@@ -78,6 +78,11 @@ public class WuwaCharsService {
 
     public List<WuwaChar> getByWeaponType(String weaponType){return wuwaCharsRepository.findByWeaponType(weaponType);}
 
+    public void getDirectoryPaths(){
+        wuwaCharsRepository.findAll().stream().map(WuwaChar::getImg_path).forEach(System.out::println);
+    }
+
+
     @Transactional
     public void deleteWuwaChar(String name){
         wuwaCharsRepository.deleteByName(name);
@@ -93,6 +98,11 @@ public class WuwaCharsService {
         WuwaChar wuwaChar = getByName(name).get(0);
         wuwaCharLore.setWuwaChar(wuwaChar);
         wuwaCharLoreRepository.save(wuwaCharLore);
+    }
+
+
+    public List<WuwaCharLore> getAllWuwaCharLore(){
+        return wuwaCharLoreRepository.findAll();
     }
 
     @Transactional
@@ -114,4 +124,22 @@ public class WuwaCharsService {
         WuwaCharLore wuwaCharLore = getWuwaCharLore(wuwaChar.getName());
         return  wuwaCharLore.getLoreSummary();
     }
+
+    @Transactional
+    public void updatePaths(String tableName, String additionalPath, int index){
+        if(tableName.equalsIgnoreCase("wuwachar")){
+            List<WuwaChar> chars = getAllWuwaChars();
+            chars.forEach(wuwaChar -> wuwaChar.setImg_path(wuwaChar.getImg_path().substring(0, index) + additionalPath+ wuwaChar.getImg_path().substring(index)));
+            wuwaCharsRepository.saveAll(chars);
+        }
+        else if(tableName.equalsIgnoreCase("wuwacharlore")){
+            List<WuwaCharLore> charLores = getAllWuwaCharLore();
+            charLores.forEach(wuwaChar -> wuwaChar.setFullLorePath(wuwaChar.getFullLorePath().substring(0, index) + additionalPath+ wuwaChar.getFullLorePath().substring(index)));
+            wuwaCharLoreRepository.saveAll(charLores);
+        }
+        else{
+            System.out.println("The table doesnt exist");
+        }
+    }
+
 }

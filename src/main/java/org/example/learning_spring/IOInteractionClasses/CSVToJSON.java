@@ -1,10 +1,10 @@
-package org.example.learning_spring.StaticClasses;
+package org.example.learning_spring.IOInteractionClasses;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.opencsv.CSVReader;
 import org.example.learning_spring.DTOs.WuwaCharLoreDTO;
-import org.example.learning_spring.TableClasses.WuwaCharLore;
+import org.example.learning_spring.TableClasses.Wuwa.WuwaCharLore;
 
 import java.io.*;
 import java.util.ArrayList;

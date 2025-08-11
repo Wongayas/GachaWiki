@@ -1,10 +1,7 @@
 package org.example.learning_spring;
 
 import org.example.learning_spring.DTOs.WuwaCharLoreDTO;
-import org.example.learning_spring.TableClasses.WuwaChar;
-import org.example.learning_spring.TableClasses.WuwaCharLore;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.example.learning_spring.TableClasses.Wuwa.WuwaChar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +14,6 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
     final private WuwaCharsService wuwaCharsService;
 
     @Autowired
@@ -69,5 +65,13 @@ public class HomeController {
     @ResponseBody
     public void addLore(@RequestBody List<WuwaCharLoreDTO> wuwaCharLoreDTOs){
         wuwaCharsService.updateAllWuwaCharLore(wuwaCharLoreDTOs);
+    }
+
+    @GetMapping("change-paths")
+    @ResponseBody
+    public String seePaths(){
+        wuwaCharsService.updatePaths("wuwachar", "/Wuwa", 0);
+        wuwaCharsService.getDirectoryPaths();
+        return "done";
     }
 }

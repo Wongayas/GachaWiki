@@ -1,6 +1,6 @@
 package org.example.learning_spring.Repositories;
 
-import org.example.learning_spring.TableClasses.WuwaCharLore;
+import org.example.learning_spring.TableClasses.Wuwa.WuwaCharLore;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

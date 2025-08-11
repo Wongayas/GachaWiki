@@ -1,4 +1,4 @@
-package org.example.learning_spring.TableClasses;
+package org.example.learning_spring.TableClasses.Wuwa;
 
 import jakarta.persistence.*;
 

@@ -1,6 +1,7 @@
 *{
     margin:0;
     padding:0;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .glacio-background{
@@ -29,103 +30,18 @@
 }
 
 h1{
+    font-size: 3rem ;
     position: relative;
 }
 
 .basic-char-info{
+    height: 80vh;
     z-index: 1;
-    padding-top:3rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.character-card{
-    overflow: hidden;
-    position: relative;
-    width:300px;
-    height:500px;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-.character-card img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    -webkit-mask-image: -webkit-linear-gradient(black 80%,transparent);
-    mask-image: linear-gradient(black 80%, transparent);
-}
-
-.attributes{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    z-index: 2;
-}
-.attributes img{
-    height: auto;
-    width: auto;
-    max-width: 40px;
-    max-height: 40px;
-    filter: drop-shadow(5px 3px black);
-    font-size: 0;
-}
-
-.stats{
-    width: 100%;
-    height:40%;
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.survivability-stats, .combat-stats{
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-
-.stat-span{
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: white;
-    background-color: black;
-    padding: 0.5rem;
-    width: 80px;
-    box-shadow: #434343 3px 2px;
-}
-
-.five-star{
-    background-image: linear-gradient(darkgoldenrod, gold);
-}
-
-.four-star{
-    background-image: linear-gradient(darkslateblue, purple);
-}
-
-
-.rarity{
-    display: flex;
-    position: absolute;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    top: 0.2rem;
-
-}
-.rarity img{
-    width: auto;
-    height: 2rem;
-    max-width: 100%;
-    max-height:100%;
-}
 
 .character-info{
     height:55vh;
@@ -133,7 +49,13 @@ h1{
     align-items: start;
     position: relative;
 }
-.character-info h1{
+.character-info h2{
+    font-size: 2rem;
     text-align: center;
+}
+.character-info p{
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 1.5rem;
 }
 

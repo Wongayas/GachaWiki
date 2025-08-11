@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/characterPage.css">
     <link rel="stylesheet" href="/styles/particles.css">
+    <link rel="stylesheet" href="/styles/charCard.css">
 </head>
 <body>
     <div th:insert="header.html :: header" class="header"></div>
@@ -16,9 +17,8 @@
             <div class="character-card" th:classappend="${wuwaChar.rarity.equals('5-star')?'five-star':'four-star'}">
                 <img th:src="${wuwaChar.img_path}" th:alt="${wuwaChar.name}">
                 <div class="stats">
-                    <div class="attributes">
-                        <img class="element-icon" th:src="@{/Wuwa_elements_img/{element}_Icon.png(element=${wuwaChar.element})}" th:alt="${wuwaChar.element}"/>
-                        <img class="weapon-icon" th:src="@{/Wuwa_weapons_img/{weaponType}_Icon.png(weaponType=${wuwaChar.weaponType})}" th:alt="${wuwaChar.weaponType}"/>
+                    <div class="rarity">
+                        <img th:src="@{/Wuwa/Wuwa_rarity_img/{rarity}.png(rarity = ${wuwaChar.rarity})}" th:alt="${wuwaChar.rarity}" />
                     </div>
                     <div class="survivability-stats">
                         <span class="stat-span" th:text = " 'HP:'+ ${wuwaChar.hp}"></span>
@@ -29,12 +29,13 @@
                         <span class="stat-span" th:text = "'Energy: '+${wuwaChar.maxEnergy}"></span>
                     </div>
                 </div>
-                <div class="rarity">
-                    <img th:src="@{/Wuwa_rarity_img/{rarity}.png(rarity = ${wuwaChar.rarity})}" th:alt="${wuwaChar.rarity}" />
+                <div class="attributes">
+                    <img class="element-icon" th:src="@{/Wuwa/Wuwa_elements_img/{element}_Icon.png(element=${wuwaChar.element})}" th:alt="${wuwaChar.element}"/>
+                    <img class="weapon-icon" th:src="@{/Wuwa/Wuwa_weapons_img/{weaponType}_Icon.png(weaponType=${wuwaChar.weaponType})}" th:alt="${wuwaChar.weaponType}"/>
                 </div>
             </div>
             <div class="character-info">
-                <h1>Character story</h1>
+                <h2>Brief Summary</h2>
                 <p th:text = "${loreSummary}"></p>
             </div>
         </div>

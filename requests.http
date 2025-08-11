@@ -291,4 +291,7 @@ Content-Type: application/json
   }
 ]
 
+###
+GET localhost:8080/change-paths
+
 
