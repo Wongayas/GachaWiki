@@ -70,7 +70,7 @@ public class HomeController {
     @GetMapping("change-paths")
     @ResponseBody
     public String changePaths(){
-        wuwaCharsService.updateWuwaFullLorePaths("/src/main/resources/GachaGames/WuwaCharacterLore/");
+        wuwaCharsService.updateWuwaFullLorePaths("/src/main/resources/GachaGamesLore/WuwaCharacterLore/");
         wuwaCharsService.getWuwaCharLoreDirectoryPaths();
         return "done";
     }
