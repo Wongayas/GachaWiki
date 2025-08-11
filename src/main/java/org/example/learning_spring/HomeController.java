@@ -40,7 +40,7 @@ public class HomeController {
     public String showCharacter(@PathVariable String name, Model model) {
         List<WuwaChar> wuwaChars = wuwaCharsService.getByName(name);
         WuwaChar wuwaChar = wuwaChars.get(0);
-        String loreSummary = wuwaCharsService.getLoreSummary(wuwaChar);
+        String loreSummary = wuwaCharsService.getWuwaCharLoreSummary(wuwaChar);
         model.addAttribute("wuwaChar", wuwaChar);
         model.addAttribute("loreSummary", loreSummary);
         return "character";
@@ -69,9 +69,15 @@ public class HomeController {
 
     @GetMapping("change-paths")
     @ResponseBody
-    public String seePaths(){
+    public String changePaths(){
         wuwaCharsService.updatePaths("wuwachar", "/Wuwa", 0);
-        wuwaCharsService.getDirectoryPaths();
+        wuwaCharsService.getWuwaCharDirectoryPaths();
+        return "done";
+    }
+    @GetMapping("see-paths")
+    @ResponseBody
+    public String seePaths(){
+        wuwaCharsService.getWuwaCharLoreDirectoryPaths();
         return "done";
     }
 }

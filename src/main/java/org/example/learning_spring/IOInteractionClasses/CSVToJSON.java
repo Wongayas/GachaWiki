@@ -28,7 +28,7 @@ public class CSVToJSON {
             String[] line;
             while ((line = csvReader.readNext()) != null) {
                 WuwaCharLoreDTO wuwaCharLoreDTO = new WuwaCharLoreDTO();
-                wuwaCharLoreDTO.setWuwaCharLore(new WuwaCharLore(line[1], "src/main/resources/CharacterLore/"+line[0]+".txt"));
+                wuwaCharLoreDTO.setWuwaCharLoreObject(new WuwaCharLore(line[1], "src/main/resources/CharacterLore/"+line[0]+".txt"));
                 wuwaCharLoreDTO.setName(line[0]);
                 wuwaCharLoreDTOList.add(wuwaCharLoreDTO);
             }

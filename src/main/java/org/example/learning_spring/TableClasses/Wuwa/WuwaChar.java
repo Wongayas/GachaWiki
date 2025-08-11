@@ -6,17 +6,17 @@ import jakarta.persistence.*;
 public class WuwaChar {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    private int id;
     @Column(unique = true, nullable = false)
-    String name;
-    int hp;
-    int atk;
-    int def;
-    int maxEnergy;
-    String element;
-    String weaponType;
-    String img_path;
-    String rarity;
+    private String name;
+    private int hp;
+    private int atk;
+    private int def;
+    private int maxEnergy;
+    private String element;
+    private String weaponType;
+    private String img_path;
+    private String rarity;
 
     @OneToOne(mappedBy = "wuwaChar")
     private WuwaCharLore wuwaCharLore;

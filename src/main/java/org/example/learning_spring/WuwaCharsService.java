@@ -78,19 +78,24 @@ public class WuwaCharsService {
 
     public List<WuwaChar> getByWeaponType(String weaponType){return wuwaCharsRepository.findByWeaponType(weaponType);}
 
-    public void getDirectoryPaths(){
+    public void getWuwaCharDirectoryPaths(){
         wuwaCharsRepository.findAll().stream().map(WuwaChar::getImg_path).forEach(System.out::println);
     }
 
+    @Transactional
+    public void addWuwaChar(WuwaChar wuwaChar){
+        wuwaCharsRepository.save(wuwaChar);
+    }
 
     @Transactional
     public void deleteWuwaChar(String name){
         wuwaCharsRepository.deleteByName(name);
     }
 
-    @Transactional
-    public void addWuwaChar(WuwaChar wuwaChar){
-        wuwaCharsRepository.save(wuwaChar);
+
+    //WUWA CHARACTER LORE TABLE
+    public List<WuwaCharLore> getAllWuwaCharLore(){
+        return wuwaCharLoreRepository.findAll();
     }
 
     @Transactional
@@ -100,29 +105,28 @@ public class WuwaCharsService {
         wuwaCharLoreRepository.save(wuwaCharLore);
     }
 
-
-    public List<WuwaCharLore> getAllWuwaCharLore(){
-        return wuwaCharLoreRepository.findAll();
-    }
-
     @Transactional
     public void updateAllWuwaCharLore(List<WuwaCharLoreDTO> wuwaCharLoreDTOs){
-        List<WuwaCharLore> wuwaCharLores = new ArrayList<>();
+        List<WuwaCharLore> wuwaCharLoreList = new ArrayList<>();
         for(WuwaCharLoreDTO wuwaCharLoreDTO : wuwaCharLoreDTOs){
             WuwaChar wuwaChar = getByName(wuwaCharLoreDTO.getName()).get(0);
-            wuwaCharLoreDTO.getWuwaCharLore().setWuwaChar(wuwaChar);
-            wuwaCharLores.add(wuwaCharLoreDTO.getWuwaCharLore());
+            WuwaCharLore wuwaCharLore = wuwaCharLoreDTO.getWuwaCharLoreObject();
+            wuwaCharLore.setWuwaChar(wuwaChar);
+            wuwaCharLoreList.add(wuwaCharLoreDTO.getWuwaCharLoreObject());
         }
-        wuwaCharLoreRepository.saveAll(wuwaCharLores);
+        wuwaCharLoreRepository.saveAll(wuwaCharLoreList);
     }
 
     public WuwaCharLore getWuwaCharLore(String name){
         return wuwaCharLoreRepository.findByWuwaChar_Name(name);
     }
 
-    public String getLoreSummary(WuwaChar wuwaChar){
+    public String getWuwaCharLoreSummary(WuwaChar wuwaChar){
         WuwaCharLore wuwaCharLore = getWuwaCharLore(wuwaChar.getName());
         return  wuwaCharLore.getLoreSummary();
+    }
+    public void getWuwaCharLoreDirectoryPaths(){
+        getAllWuwaCharLore().stream().map(WuwaCharLore::getFullLorePath).forEach(System.out::println);
     }
 
     @Transactional

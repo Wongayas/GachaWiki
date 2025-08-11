@@ -294,4 +294,5 @@ Content-Type: application/json
 ###
 GET localhost:8080/change-paths
 
-
+###
+GET localhost:8080/see-paths

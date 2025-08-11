@@ -3,22 +3,22 @@ package org.example.learning_spring.DTOs;
 import org.example.learning_spring.TableClasses.Wuwa.WuwaCharLore;
 
 public class WuwaCharLoreDTO {
-    private WuwaCharLore wuwaCharLore;
+    private WuwaCharLore wuwaCharLoreObject;
     private String name;
 
     public WuwaCharLoreDTO(){};
 
-    public WuwaCharLoreDTO(WuwaCharLore wuwaCharLore, String name) {
-        this.wuwaCharLore = wuwaCharLore;
+    public WuwaCharLoreDTO(WuwaCharLore wuwaCharLoreObject, String name) {
+        this.wuwaCharLoreObject = wuwaCharLoreObject;
         this.name = name;
     }
 
-    public WuwaCharLore getWuwaCharLore() {
-        return wuwaCharLore;
+    public WuwaCharLore getWuwaCharLoreObject() {
+        return wuwaCharLoreObject;
     }
 
-    public void setWuwaCharLore(WuwaCharLore wuwaCharLore) {
-        this.wuwaCharLore = wuwaCharLore;
+    public void setWuwaCharLoreObject(WuwaCharLore wuwaCharLoreObject) {
+        this.wuwaCharLoreObject = wuwaCharLoreObject;
     }
 
     public String getName() {
