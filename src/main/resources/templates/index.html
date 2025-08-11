@@ -14,8 +14,8 @@
     <div class="char" th:classappend="${wuwaChar.rarity == '5-star'}?'five-star':'four-star'" th:each = "wuwaChar: ${wuwaChars}">
         <a th:href="@{characters/{name}(name = ${wuwaChar.name})}">
             <img th:src="${wuwaChar.img_path}" th:alt="${wuwaChar.name}">
-            <img class="element-icon" th:src="@{/Wuwa/Wuwa_elements_img/{element}_Icon.png(element=${wuwaChar.element})}" th:alt="${wuwaChar.element}"/>
-            <img class="weapon-icon" th:src="@{/Wuwa/Wuwa_weapons_img/{weaponType}_Icon.png(weaponType=${wuwaChar.weaponType})}" th:alt="${wuwaChar.weaponType}"/>
+            <img class="element-icon" th:src="@{/GachaGameImages/Wuwa/Wuwa_elements_img/{element}_Icon.png(element=${wuwaChar.element})}" th:alt="${wuwaChar.element}"/>
+            <img class="weapon-icon" th:src="@{/GachaGameImages/Wuwa/Wuwa_weapons_img/{weaponType}_Icon.png(weaponType=${wuwaChar.weaponType})}" th:alt="${wuwaChar.weaponType}"/>
             <div class="name_field">
                 <span th:text="${wuwaChar.name}"></span>
             </div>

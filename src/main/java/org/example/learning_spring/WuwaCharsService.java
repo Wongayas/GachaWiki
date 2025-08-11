@@ -83,6 +83,16 @@ public class WuwaCharsService {
     }
 
     @Transactional
+    public void updateWuwaCharsImgPath(String newPath){
+        List<WuwaChar> chars = getAllWuwaChars();
+        chars.forEach(wuwaChar -> {
+            int elements = wuwaChar.getImg_path().split("/").length;
+            wuwaChar.setImg_path(newPath+ wuwaChar.getImg_path().split("/")[elements-1]);});
+        wuwaCharsRepository.saveAll(chars);
+    }
+
+
+    @Transactional
     public void addWuwaChar(WuwaChar wuwaChar){
         wuwaCharsRepository.save(wuwaChar);
     }
@@ -130,20 +140,11 @@ public class WuwaCharsService {
     }
 
     @Transactional
-    public void updatePaths(String tableName, String additionalPath, int index){
-        if(tableName.equalsIgnoreCase("wuwachar")){
-            List<WuwaChar> chars = getAllWuwaChars();
-            chars.forEach(wuwaChar -> wuwaChar.setImg_path(wuwaChar.getImg_path().substring(0, index) + additionalPath+ wuwaChar.getImg_path().substring(index)));
-            wuwaCharsRepository.saveAll(chars);
-        }
-        else if(tableName.equalsIgnoreCase("wuwacharlore")){
-            List<WuwaCharLore> charLores = getAllWuwaCharLore();
-            charLores.forEach(wuwaChar -> wuwaChar.setFullLorePath(wuwaChar.getFullLorePath().substring(0, index) + additionalPath+ wuwaChar.getFullLorePath().substring(index)));
-            wuwaCharLoreRepository.saveAll(charLores);
-        }
-        else{
-            System.out.println("The table doesnt exist");
-        }
+    public void updateWuwaFullLorePaths(String newPath){
+        List<WuwaCharLore> charLoreList = getAllWuwaCharLore();
+        charLoreList.forEach(wuwaChar -> {
+            int elements = wuwaChar.getFullLorePath().split("/").length;
+            wuwaChar.setFullLorePath(newPath+ wuwaChar.getFullLorePath().split("/")[elements-1]);});
+        wuwaCharLoreRepository.saveAll(charLoreList);
     }
-
 }

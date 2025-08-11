@@ -8,39 +8,39 @@
 <div th:fragment="filters" id="filters">
     <div class="list_elements">
         <a th:href="@{/characters(element = ${element == 'Aero' ? null : 'Aero'}, weaponType = ${weaponType})}">
-            <img th:classappend="${element} == 'Aero' ? ' clicked-aero' : ''" class="aero-icon" src="/Wuwa/Wuwa_elements_img/Aero_Icon.png" alt="Aero_icon"/>
+            <img th:classappend="${element} == 'Aero' ? ' clicked-aero' : ''" class="aero-icon" src="/GachaGameImages/Wuwa/Wuwa_elements_img/Aero_Icon.png" alt="Aero_icon"/>
         </a>
         <a th:href="@{/characters(element = ${element == 'Fusion' ? null : 'Fusion'}, weaponType = ${weaponType})}">
-            <img th:classappend="${element} == 'Fusion' ? ' clicked-fusion' : ''" class="fusion-icon" src="/Wuwa/Wuwa_elements_img/Fusion_Icon.png" alt="Fusion_icon"/>
+            <img th:classappend="${element} == 'Fusion' ? ' clicked-fusion' : ''" class="fusion-icon" src="/GachaGameImages/Wuwa/Wuwa_elements_img/Fusion_Icon.png" alt="Fusion_icon"/>
         </a>
         <a th:href="@{/characters(element = ${element == 'Glacio' ? null : 'Glacio'}, weaponType = ${weaponType})}">
-            <img th:classappend="${element} == 'Glacio' ? ' clicked-glacio' : ''" class="glacio-icon" src="/Wuwa/Wuwa_elements_img/Glacio_Icon.png" alt="Glacio_icon"/>
+            <img th:classappend="${element} == 'Glacio' ? ' clicked-glacio' : ''" class="glacio-icon" src="/GachaGameImages/Wuwa/Wuwa_elements_img/Glacio_Icon.png" alt="Glacio_icon"/>
         </a>
         <a th:href="@{/characters(element = ${element == 'Havoc' ? null : 'Havoc'}, weaponType = ${weaponType})}">
-            <img th:classappend="${element} == 'Havoc' ? ' clicked-havoc' : ''" class="havoc-icon" src="/Wuwa/Wuwa_elements_img/Havoc_Icon.png" alt="Havoc_icon"/>
+            <img th:classappend="${element} == 'Havoc' ? ' clicked-havoc' : ''" class="havoc-icon" src="/GachaGameImages/Wuwa/Wuwa_elements_img/Havoc_Icon.png" alt="Havoc_icon"/>
         </a>
         <a th:href="@{/characters(element = ${element == 'Spectro' ? null : 'Spectro'}, weaponType = ${weaponType})}">
-            <img th:classappend="${element} == 'Spectro' ? ' clicked-spectro' : ''" class="spectro-icon" src="/Wuwa/Wuwa_elements_img/Spectro_Icon.png" alt="Scpectro_icon"/>
+            <img th:classappend="${element} == 'Spectro' ? ' clicked-spectro' : ''" class="spectro-icon" src="/GachaGameImages/Wuwa/Wuwa_elements_img/Spectro_Icon.png" alt="Scpectro_icon"/>
         </a>
         <a th:href="@{/characters(element = ${element == 'Electro' ? null : 'Electro'}, weaponType = ${weaponType})}">
-            <img th:classappend="${element} == 'Electro' ? ' clicked-electro' : ''" class="electro-icon" src="/Wuwa/Wuwa_elements_img/Electro_Icon.png" alt="Electro_icon"/>
+            <img th:classappend="${element} == 'Electro' ? ' clicked-electro' : ''" class="electro-icon" src="/GachaGameImages/Wuwa/Wuwa_elements_img/Electro_Icon.png" alt="Electro_icon"/>
         </a>
     </div>
     <div class="list_weapons">
         <a th:href="@{/characters(weaponType = ${weaponType == 'Sword'? null : 'Sword'}, element = ${element})}">
-            <img th:classappend="${weaponType} == 'Sword' ? ' clicked-weapon' : ''" class="sword-icon" src="/Wuwa/Wuwa_weapons_img/Sword_Icon.png" alt="Sword_icon"/>
+            <img th:classappend="${weaponType} == 'Sword' ? ' clicked-weapon' : ''" class="sword-icon" src="/GachaGameImages/Wuwa/Wuwa_weapons_img/Sword_Icon.png" alt="Sword_icon"/>
         </a>
         <a th:href="@{/characters(weaponType = ${weaponType == 'Broadblade'? null : 'Broadblade'}, element = ${element})}">
-            <img th:classappend="${weaponType} == 'Broadblade' ? ' clicked-weapon' : ''" class="broadblade-icon" src="/Wuwa/Wuwa_weapons_img/Broadblade_Icon.png" alt="Broadblade_icon"/>
+            <img th:classappend="${weaponType} == 'Broadblade' ? ' clicked-weapon' : ''" class="broadblade-icon" src="/GachaGameImages/Wuwa/Wuwa_weapons_img/Broadblade_Icon.png" alt="Broadblade_icon"/>
         </a>
         <a th:href="@{/characters(weaponType = ${weaponType == 'Pistol'? null : 'Pistol'}, element = ${element})}">
-            <img th:classappend="${weaponType} == 'Pistol' ? ' clicked-weapon' : ''" class="pistol-icon" src="/Wuwa/Wuwa_weapons_img/Pistol_Icon.png" alt="Pistol_icon"/>
+            <img th:classappend="${weaponType} == 'Pistol' ? ' clicked-weapon' : ''" class="pistol-icon" src="/GachaGameImages/Wuwa/Wuwa_weapons_img/Pistol_Icon.png" alt="Pistol_icon"/>
         </a>
         <a th:href="@{/characters(weaponType = ${weaponType == 'Gauntlet'? null : 'Gauntlet'}, element = ${element})}">
-            <img th:classappend="${weaponType} == 'Gauntlet' ? ' clicked-weapon' : ''" class="gauntlet-icon" src="/Wuwa/Wuwa_weapons_img/Gauntlet_Icon.png" alt="Gauntlet_icon"/>
+            <img th:classappend="${weaponType} == 'Gauntlet' ? ' clicked-weapon' : ''" class="gauntlet-icon" src="/GachaGameImages/Wuwa/Wuwa_weapons_img/Gauntlet_Icon.png" alt="Gauntlet_icon"/>
         </a>
         <a th:href="@{/characters(weaponType = ${weaponType == 'Rectifier'? null : 'Rectifier'}, element = ${element})}">
-            <img th:classappend="${weaponType} == 'Rectifier' ? ' clicked-weapon' : ''" class="rectifier-icon" src="/Wuwa/Wuwa_weapons_img/Rectifier_Icon.png" alt="Rectifier_icon"/>
+            <img th:classappend="${weaponType} == 'Rectifier' ? ' clicked-weapon' : ''" class="rectifier-icon" src="/GachaGameImages/Wuwa/Wuwa_weapons_img/Rectifier_Icon.png" alt="Rectifier_icon"/>
         </a>
     </div>
 </div>

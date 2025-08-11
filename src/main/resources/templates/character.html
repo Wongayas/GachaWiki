@@ -18,7 +18,7 @@
                 <img th:src="${wuwaChar.img_path}" th:alt="${wuwaChar.name}">
                 <div class="stats">
                     <div class="rarity">
-                        <img th:src="@{/Wuwa/Wuwa_rarity_img/{rarity}.png(rarity = ${wuwaChar.rarity})}" th:alt="${wuwaChar.rarity}" />
+                        <img th:src="@{/GachaGameImages/Wuwa/Wuwa_rarity_img/{rarity}.png(rarity = ${wuwaChar.rarity})}" th:alt="${wuwaChar.rarity}" />
                     </div>
                     <div class="survivability-stats">
                         <span class="stat-span" th:text = " 'HP:'+ ${wuwaChar.hp}"></span>
@@ -30,8 +30,8 @@
                     </div>
                 </div>
                 <div class="attributes">
-                    <img class="element-icon" th:src="@{/Wuwa/Wuwa_elements_img/{element}_Icon.png(element=${wuwaChar.element})}" th:alt="${wuwaChar.element}"/>
-                    <img class="weapon-icon" th:src="@{/Wuwa/Wuwa_weapons_img/{weaponType}_Icon.png(weaponType=${wuwaChar.weaponType})}" th:alt="${wuwaChar.weaponType}"/>
+                    <img class="element-icon" th:src="@{/GachaGameImages/Wuwa/Wuwa_elements_img/{element}_Icon.png(element=${wuwaChar.element})}" th:alt="${wuwaChar.element}"/>
+                    <img class="weapon-icon" th:src="@{/GachaGameImages/Wuwa/Wuwa_weapons_img/{weaponType}_Icon.png(weaponType=${wuwaChar.weaponType})}" th:alt="${wuwaChar.weaponType}"/>
                 </div>
             </div>
             <div class="character-info">

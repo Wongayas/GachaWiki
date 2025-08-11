@@ -46,7 +46,6 @@ h1{
 .character-info{
     height:55vh;
     width:30%;
-    align-items: start;
     position: relative;
 }
 .character-info h2{

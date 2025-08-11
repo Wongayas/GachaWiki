@@ -70,13 +70,7 @@ public class HomeController {
     @GetMapping("change-paths")
     @ResponseBody
     public String changePaths(){
-        wuwaCharsService.updatePaths("wuwachar", "/Wuwa", 0);
-        wuwaCharsService.getWuwaCharDirectoryPaths();
-        return "done";
-    }
-    @GetMapping("see-paths")
-    @ResponseBody
-    public String seePaths(){
+        wuwaCharsService.updateWuwaFullLorePaths("/src/main/resources/GachaGames/WuwaCharacterLore/");
         wuwaCharsService.getWuwaCharLoreDirectoryPaths();
         return "done";
     }
