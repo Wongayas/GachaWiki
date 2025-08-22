@@ -296,3 +296,6 @@ GET localhost:8080/change-paths
 
 ###
 GET localhost:8080/see-paths
+
+###
+GET localhost:8080/lore-testing

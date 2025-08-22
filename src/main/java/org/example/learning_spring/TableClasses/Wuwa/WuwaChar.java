@@ -36,19 +36,6 @@ public class WuwaChar {
         this.rarity = rarity;
     }
 
-    public WuwaChar(int id, String name, int hp, int atk, int def, int maxEnergy, String element, String weaponType, String img_path,String rarity) {
-        this.id = id;
-        this.name = name;
-        this.hp = hp;
-        this.atk = atk;
-        this.def = def;
-        this.maxEnergy = maxEnergy;
-        this.element = element;
-        this.weaponType = weaponType;
-        this.img_path = img_path;
-        this.rarity = rarity;
-    }
-
     public int getId() {
         return id;
     }

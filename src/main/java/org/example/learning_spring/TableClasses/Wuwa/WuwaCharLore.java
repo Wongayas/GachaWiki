@@ -24,11 +24,6 @@ public class WuwaCharLore {
         this.loreSummary = loreSummary;
         this.fullLorePath = fullLorePath;
     };
-    public WuwaCharLore(int id,String loreSummary, String fullLorePath) {
-        this.id = id;
-        this.loreSummary = loreSummary;
-        this.fullLorePath = fullLorePath;
-    };
 
     public int getId() {
         return id;
