@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="/styles/charCard.css">
 </head>
 <body>
-    <div th:insert="header.html :: header" class="header"></div>
+    <div th:insert="~{header.html :: header}" class="header"></div>
     <div id="character-page" th:class="${wuwaChar.element.toLowerCase()}+'-background'">
-    <div th:insert="particles.html::particles"></div>
+    <div th:insert="~{particles.html::particles}"></div>
         <h1 style="text-align: center" th:text = "${wuwaChar.name}"></h1>
         <div class="basic-char-info">
             <div class="character-card" th:classappend="${wuwaChar.rarity.equals('5-star')?'five-star':'four-star'}">

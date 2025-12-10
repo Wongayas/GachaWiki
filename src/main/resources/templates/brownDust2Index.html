@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/filters.css">
+</head>
+<body>
+<div th:insert="header.html :: header" class="header"></div>
+<div id="charList">
+    <div class="char" th:each="brownDust2 : ${brownDust2Chars}">
+        <h3 th:text = "${brownDust2.getName()}"></h3>
+        <img th:src = "${brownDust2.getCharCostumes().get(0).getCostumeImgPath()}" alt = "brownDust2">
+        <div th:each = "charCostume : ${brownDust2.charCostumes}">
+            <img th:src="${charCostume.getPrestigeCostume()} ? ${charCostume.getPrestigeCostume().getCostumeImgPath()}"  alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>
